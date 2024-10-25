@@ -8,10 +8,12 @@ public class Lujuria : MonoBehaviour
     public float floatingSpeed = 1.5f;
     public float minHeight = .5f;
     public float maxHeight = 3f;
+    public float moveSpeed = -7f; // Velocidad de movimiento hacia la izquierda
+    public float targetXPosition = -7f; // Posición objetivo en el eje X
 
     private bool movingUp = true; // Dirección actual (subiendo o bajando)
-
     private Rigidbody2D rb;
+    private bool hasReachedTarget = false; // Indica si alcanzó la posición objetivo en X
 
     void Start()
     {
@@ -24,6 +26,19 @@ public class Lujuria : MonoBehaviour
 
     void Update()
     {
+        // Mover hacia la izquierda hasta alcanzar la posición objetivo
+        if (!hasReachedTarget)
+        {
+            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+
+            // Verificar si alcanzó o pasó la posición objetivo en X
+            if (transform.position.x <= targetXPosition)
+            {
+                hasReachedTarget = true;
+                rb.velocity = new Vector2(0, rb.velocity.y); // Detener el movimiento horizontal
+            }
+        }
+
         // Verificar si el enemigo está subiendo o bajando
         if (movingUp)
         {
@@ -49,4 +64,3 @@ public class Lujuria : MonoBehaviour
         }
     }
 }
-
