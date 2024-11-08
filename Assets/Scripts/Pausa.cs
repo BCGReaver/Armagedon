@@ -5,20 +5,23 @@ using UnityEngine;
 public class Pausa : MonoBehaviour
 {
     public GameObject ObjetoMenuPausa;
-    void Start()
-    {
-        
-    }
+    private bool estaEnPausa = false;  // Variable para controlar el estado de pausa
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Pausa == false)
+            if (estaEnPausa == false)
             {
-                Objetomenupausa.SetActive(false);
-                Pausa = true;
+                ObjetoMenuPausa.SetActive(true);  // Muestra el menú de pausa
+                estaEnPausa = true;
+                Time.timeScale = 0f;  // Pausa el juego
+            }
+            else
+            {
+                ObjetoMenuPausa.SetActive(false);  // Oculta el menú de pausa
+                estaEnPausa = false;
+                Time.timeScale = 1f;  // Reanuda el juego
             }
         }
     }
