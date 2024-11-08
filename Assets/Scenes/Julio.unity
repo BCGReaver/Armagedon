@@ -842,6 +842,11 @@ MonoBehaviour:
   velocidadMovimiento: 5
   escalaReducida: {x: 1, y: 1, z: 1}
   nuevaPosicion: {x: 12, y: 0, z: 0}
+  proyectilPrefab: {fileID: 6769709305547400844, guid: 2eb787042c4d9c44a81a2fae85fe9d0d, type: 3}
+  tiempoEntreAtaques: 2
+  velocidadProyectil: 3
+  limiteSuperior: 4
+  limiteInferior: -4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
