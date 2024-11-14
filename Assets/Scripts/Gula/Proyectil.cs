@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Proyectil : MonoBehaviour
 {
-    public float tiempoVida = 5f;  // Tiempo antes de que el proyectil se destruya
+    public float tiempoVida = 4f;  // Tiempo antes de que el proyectil se destruya
 
     void Start()
     {
