@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Asegúrate de incluir este espacio de nombres
+using UnityEngine.SceneManagement; 
 
 public class CodigoPausa : MonoBehaviour
 {
-    public GameObject ObjetoMenuPausa; // El menú de pausa
-    private bool pausa = false; // Estado de pausa
+    public GameObject ObjetoMenuPausa; 
+    private bool pausa = false; 
 
     void Update()
     {
@@ -14,36 +14,36 @@ public class CodigoPausa : MonoBehaviour
         {
             if (pausa)
             {
-                Resumir(); // Resumir si está pausado
+                Resumir(); 
             }
             else
             {
-                Pausar(); // Pausar si no lo está
+                Pausar(); 
             }
         }
     }
 
     public void Pausar()
     {
-        ObjetoMenuPausa.SetActive(true); // Mostrar menú de pausa
-        Time.timeScale = 0; // Pausar el tiempo
-        Cursor.visible = true; // Hacer visible el cursor
-        Cursor.lockState = CursorLockMode.None; // Desbloquear el cursor
-        pausa = true; // Actualizar estado de pausa
+        ObjetoMenuPausa.SetActive(true); 
+        Time.timeScale = 0; 
+        Cursor.visible = true; 
+        Cursor.lockState = CursorLockMode.None; 
+        pausa = true; 
     }
 
     public void Resumir()
     {
-        ObjetoMenuPausa.SetActive(false); // Ocultar menú de pausa
-        Time.timeScale = 1; // Reanudar el tiempo
-        Cursor.visible = false; // Ocultar el cursor
-        Cursor.lockState = CursorLockMode.Locked; // Bloquear el cursor
-        pausa = false; // Actualizar estado de pausa
+        ObjetoMenuPausa.SetActive(false); 
+        Time.timeScale = 1; 
+        Cursor.visible = false; 
+        Cursor.lockState = CursorLockMode.Locked; 
+        pausa = false; 
     }
 
     public void IrAlMenu(string NombreMenu)
     {
-        Time.timeScale = 1; // Asegurarse de reanudar el tiempo antes de cambiar de escena
-        SceneManager.LoadScene(NombreMenu); // Cambiar a la escena del menú
+        Time.timeScale = 1; 
+        SceneManager.LoadScene(NombreMenu); 
     }
 }
