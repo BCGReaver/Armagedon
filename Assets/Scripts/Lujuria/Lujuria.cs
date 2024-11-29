@@ -1,10 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Lujuria : MonoBehaviour
 {
     // Variables 
+    public Vector3 puntoInicial = new Vector3(15, 0, 0); // Posición inicial
+    public Vector3 puntoFinal = new Vector3(7, 0, 0); // Punto donde comienza el temporizador y los ataques
+    public float velocidadMovimiento = 10f; // Velocidad de movimiento
+    public Vector3 nuevaPosicion = new Vector3(15, 0, 0); // Nueva posición al finalizar el temporizador
+
     public float floatingSpeed = 1.5f;
     public float minHeight = .5f;
     public float maxHeight = 3f;
@@ -14,9 +17,18 @@ public class Lujuria : MonoBehaviour
     private bool movingUp = true; // Dirección actual (subiendo o bajando)
     private Rigidbody2D rb;
     private bool hasReachedTarget = false; // Indica si alcanzó la posición objetivo en X
+    
+    private bool hasArrived = false; // Indica si ha llegado al punto final
+    private Temporizador temporizador; // Referencia al temporizador
+    //private bool moviendoHaciaArriba = true; // Controla la dirección del movimiento del cañón
+    private float contadorTiempo = 0f; // Contador para el tiempo entre ataques
+
 
     void Start()
     {
+        transform.position = puntoInicial;
+        temporizador = FindObjectOfType<Temporizador>();
+
         // Rigidbody2D del enemigo
         rb = GetComponent<Rigidbody2D>();
 
@@ -27,19 +39,63 @@ public class Lujuria : MonoBehaviour
     void Update()
     {
         // Mover hacia la izquierda hasta alcanzar la posición objetivo
-        if (!hasReachedTarget)
+        if (!hasArrived)
         {
-            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            MoverHaciaPunto(puntoFinal);
+            if(transform.position == puntoFinal)
+            {
+                hasArrived=true;
 
-            // Verificar si alcanzó o pasó la posición objetivo en X
+                if (temporizador != null)
+                {
+                    temporizador.IniciarTemporizador();
+                }
+            }
+
+            /* Verificar si alcanzó o pasó la posición objetivo en X
             if (transform.position.x <= targetXPosition)
             {
                 hasReachedTarget = true;
                 rb.velocity = new Vector2(0, rb.velocity.y); // Detener el movimiento horizontal
-            }
+            }*/
         }
 
         // Verificar si el enemigo está subiendo o bajando
+        else if (temporizador != null && temporizador.TemporizadorActivo())
+        {
+            MoverLujuria();
+            //vacio
+
+            /* Si está subiendo, agregar una velocidad positiva hacia arriba
+            rb.velocity = new Vector2(rb.velocity.x, floatingSpeed);
+
+            // Si alcanza la altura máxima, cambiar dirección
+            if (transform.position.y >= maxHeight)
+            {
+                movingUp = false;
+            }*/
+        }
+        else if (temporizador !=null && !temporizador.TemporizadorActivo()) 
+        {
+            MoverHaciaPunto(nuevaPosicion);
+
+            /* Si está bajando, agregar una velocidad negativa hacia abajo
+            rb.velocity = new Vector2(rb.velocity.x, -floatingSpeed);
+
+            // Si alcanza la altura mínima, cambiar dirección
+            if (transform.position.y <= minHeight)
+            {
+                movingUp = true;
+            }*/
+        }
+    }
+    void MoverHaciaPunto(Vector3 destino)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, destino, velocidadMovimiento * Time.deltaTime);
+    }
+
+    void MoverLujuria()
+    {
         if (movingUp)
         {
             // Si está subiendo, agregar una velocidad positiva hacia arriba

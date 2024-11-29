@@ -11,11 +11,40 @@ public class Querubin : MonoBehaviour
 
     private float contadorTiempo = 0f;
     private bool moviendoHaciaArriba = true;
+    private bool atacando = false;  // Indica si Querubín está atacando
+
+    private Temporizador temporizador;
+    private bool detenerMovimiento = false;
+
+    void Start()
+    {
+        temporizador = FindObjectOfType<Temporizador>();
+    }
 
     void Update()
     {
-        LanzarAtaque();
-        MoverCanon();
+        if (temporizador != null && temporizador.TemporizadorActivo())
+        {
+            LanzarAtaque();
+            MoverCanon();
+        } 
+        else if (temporizador == null)
+        {
+            DetenerAtaque();
+            DetenerMovimiento();
+            
+        }
+    }
+
+    public void IniciarAtaque()
+    {
+        atacando = true;  // Habilita el ataque
+        contadorTiempo = 0f;  // Reinicia el contador
+    }
+
+    public void DetenerAtaque()
+    {
+        atacando = false;  // Deshabilita el ataque
     }
 
     void LanzarAtaque()
@@ -24,6 +53,7 @@ public class Querubin : MonoBehaviour
 
         if (contadorTiempo >= tiempoEntreAtaques)
         {
+
             if (proyectilPrefab != null)
             {
                 GameObject proyectil = Instantiate(proyectilPrefab, transform.position, Quaternion.identity);
@@ -64,5 +94,10 @@ public class Querubin : MonoBehaviour
                 moviendoHaciaArriba = true;
             }
         }
+    }
+
+    public void DetenerMovimiento()
+    {
+        detenerMovimiento = true;
     }
 }
