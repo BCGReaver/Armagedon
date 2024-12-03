@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Proyectil : MonoBehaviour
@@ -13,10 +14,12 @@ public class Proyectil : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Detectar colisiones
-        if (other.CompareTag("Player")) // Cambia "Player" por la etiqueta de tu personaje
+        if (other.CompareTag("arcangel")) 
         {
             // Aquí puedes agregar lógica para dañar al jugador
-            Debug.Log("¡Impacto en el jugador!");
+            Debug.Log("Game Over ");
+         
+
             Destroy(gameObject); // Destruir el proyectil al impactar
         }
     }
