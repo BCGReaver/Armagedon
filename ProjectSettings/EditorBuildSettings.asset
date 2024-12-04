@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 4830bff3407fd5140b239522a2e9ec1e
+  - enabled: 1
+    path: Assets/Scenes/Lujuria.unity
+    guid: 9e3a0f1e17449fe48aca10e8ef05a8be
   m_configObjects: {}

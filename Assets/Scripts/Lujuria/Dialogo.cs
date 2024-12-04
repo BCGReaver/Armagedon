@@ -11,6 +11,7 @@ public class Dialogo : MonoBehaviour
     public string dialogo;
     public TMP_Text tmp_text;
     public bool finTexto = false;
+    public GameObject canvasDialogo_obj, arcangel_obj, lujuria_obj, gameUi_obj;
 
     // Start is called before the first frame update
     void Start()
@@ -48,13 +49,19 @@ public class Dialogo : MonoBehaviour
         {
             if (finTexto)
             {
-
+                Debug.Log("Lol");
+                canvasDialogo_obj.SetActive(false);
+                arcangel_obj.SetActive(true);
+                lujuria_obj.SetActive(true);
+                gameUi_obj.SetActive(true);
             }
         }
         else
         {
+            Debug.Log("cuca");
             StopAllCoroutines();
             tmp_text.text = dialogo;
+            finTexto = true;
         }
     }
 }

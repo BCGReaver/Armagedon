@@ -4,32 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject PauseGO;
-    private bool isPaused = false; // Estado de pausa
-
-    // Método para mostrar y ocultar el menú de pausa
-    public void TogglePause()
+    public bool cursor;
+    private void Awake()
     {
-        isPaused = !isPaused; // Alternar el estado de pausa
-
-        if (isPaused)
+        Cursor.visible = cursor;
+        if(cursor )
         {
-            PauseGO.SetActive(true); // Mostrar el menú de pausa
-            Time.timeScale = 0f; // Detener el tiempo
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
-            PauseGO.SetActive(false); // Ocultar el menú de pausa
-            Time.timeScale = 1f; // Reanudar el tiempo
-        }
-    }
-
-    // Opcional: Detectar entrada para pausar/reanudar
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape)) // Puedes cambiar la tecla si lo prefieres
-        {
-            TogglePause();
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

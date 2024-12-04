@@ -14,7 +14,7 @@ public class Proyectil : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Detectar colisiones
-        if (other.CompareTag("arcangel")) 
+        if (other.CompareTag("Arcangel")) 
         {
             // Aquí puedes agregar lógica para dañar al jugador
             Debug.Log("Game Over ");

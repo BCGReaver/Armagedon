@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CodigoPausa : MonoBehaviour
 {
     public GameObject ObjetoMenuPausa; 
-    private bool pausa = false; 
+    [SerializeField] private bool pausa = false; 
 
     void Update()
     {

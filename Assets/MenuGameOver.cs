@@ -1,10 +1,10 @@
-/*using System;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuGameOver : MonoBehaviour
 {
-    [SerializeField] private GameObject menuGameOver; // Panel de Game Over
+    /*[SerializeField] private GameObject menuGameOver; // Panel de Game Over
     
     //[SerializeField] private ArcangelHealt arcangelHealt; // Referencia al Arcángel
 
@@ -45,6 +45,5 @@ public class MenuGameOver : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-}*/
-
+    }*/
+}
