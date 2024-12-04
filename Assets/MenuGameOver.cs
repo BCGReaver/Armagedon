@@ -1,15 +1,16 @@
-using System;
+/*using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuGameOver : MonoBehaviour
 {
     [SerializeField] private GameObject menuGameOver; // Panel de Game Over
-    [SerializeField] private ArcangelHealt arcangelHealt; // Referencia al Arcángel
+    
+    //[SerializeField] private ArcangelHealt arcangelHealt; // Referencia al Arcángel
 
     private void Start()
     {
-        arcangelHealt = FindObjectOfType<ArcangelHealt>(); // Buscar automáticamente el componente en la escena
+        //arcangelHealt = FindObjectOfType<ArcangelHealt>(); // Buscar automáticamente el componente en la escena
 
         if (arcangelHealt != null)
         {
@@ -45,5 +46,5 @@ public class MenuGameOver : MonoBehaviour
         Application.Quit();
 #endif
     }
-}
+}*/
 

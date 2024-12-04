@@ -1,5 +1,6 @@
-using System;
+/*using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ArcangelHealt : MonoBehaviour
 {
@@ -18,4 +19,19 @@ public class ArcangelHealt : MonoBehaviour
             Debug.Log("Impacto detectado. Game Over.");
         }
     }
-}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Proyectil"))  // Si el objeto que golpea es un proyectil
+        {
+            Debug.Log("Personaje golpeado, cambiando a la pantalla de Game Over.");
+            TerminarJuego();  // Llamar la función para cambiar de escena
+        }
+    }
+
+    // Método para cambiar a la escena de Game Over
+    void TerminarJuego()
+    {
+        SceneManager.LoadScene("GameOver");  // Carga la escena de Game Over
+    }
+}*/

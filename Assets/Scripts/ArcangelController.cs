@@ -38,19 +38,18 @@ public class ArcangelController : MonoBehaviour
         }
     }
 
-    // Método para detectar colisiones con proyectiles
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Proyectil"))  // Si el objeto que golpea es un proyectil
         {
             Debug.Log("Personaje golpeado, cambiando a la pantalla de Game Over.");
-            //TerminarJuego();  // Llamar la función para cambiar de escena
+            TerminarJuego();  // Llamar la función para cambiar de escena
         }
     }
 
-    /* Método para cambiar a la escena de Game Over
+    // Método para cambiar a la escena de Game Over
     void TerminarJuego()
     {
         SceneManager.LoadScene("GameOver");  // Carga la escena de Game Over
-    }*/
+    }
 }
