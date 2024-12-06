@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class ArcangelController : MonoBehaviour
 {
     // Variables 
-    public float airForce = 5f;
-    public float gravityScale = 2f;
+    public float airForce = 7f;
+    public float gravityScale = 1.5f;
 
     private Rigidbody2D rb;
 

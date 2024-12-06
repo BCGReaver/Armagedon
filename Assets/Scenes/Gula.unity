@@ -3677,7 +3677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airForce: 7
-  gravityScale: 1
+  gravityScale: 1.5
 --- !u!4 &1733520185
 Transform:
   m_ObjectHideFlags: 0

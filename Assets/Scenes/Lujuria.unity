@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3575e8d71a547da4f81105bb6c66d2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airForce: 6
+  airForce: 7
   gravityScale: 1.5
 --- !u!4 &816235749
 Transform:
