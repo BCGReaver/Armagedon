@@ -31,6 +31,7 @@ public class Gula : MonoBehaviour
     {
         if (!haReducidoTamaño)
         {
+
             MoverHaciaPunto(puntoCambioTamano);
             if (transform.position == puntoCambioTamano)
             {
