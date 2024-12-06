@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lujuria.unity
     guid: 9e3a0f1e17449fe48aca10e8ef05a8be
+  - enabled: 1
+    path: Assets/Scenes/Gula.unity
+    guid: f1306038edf28f44d80ed114a20fdccc
+  - enabled: 1
+    path: Assets/Scenes/Envidia.unity
+    guid: bac17817f194708459fb131babeddd84
   m_configObjects: {}
